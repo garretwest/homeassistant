@@ -1,0 +1,40 @@
+- id: '1542914553477'
+  alias: Emma's Bedtime Light - On
+  trigger:
+  - at: '18:15:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      brightness_pct: '50'
+      entity_id: light.emmas_lamp
+      kelvin: '4500'
+      power: 'True'
+    service: light.lifx_set_state
+- id: '1542915174385'
+  alias: Emma's Light - Off
+  trigger:
+  - at: 08:15:00
+    platform: time
+  - at: '20:00:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: light.emmas_lamp
+    service: light.turn_off
+- id: '1542915686113'
+  alias: Emma's Morning Light - On
+  trigger:
+  - at: 07:30:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      brightness_pct: '1'
+      entity_id: light.emmas_lamp
+      hs_color:
+      - 176
+      - 75
+      power: 'True'
+    service: light.lifx_set_state
